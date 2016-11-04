@@ -53,7 +53,7 @@ public class MusicConverterJFrame extends javax.swing.JFrame {
         jLabelTo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Music Formatter 1.0");
+        setTitle("Music Formatter 1.0.0");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
