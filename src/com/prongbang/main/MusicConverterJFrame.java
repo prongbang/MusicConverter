@@ -145,14 +145,16 @@ public class MusicConverterJFrame extends javax.swing.JFrame {
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         Integer opt = j.showSaveDialog(this);
 
-        jPathTF.setText(j.getSelectedFile().getAbsolutePath());
+        if (j.getSelectedFile() != null) {
+            jPathTF.setText(j.getSelectedFile().getAbsolutePath());
 
-        if (jPathTF.getText() != null && !jPathTF.getText().equals("")) {
-            jPathTF.setEditable(false);
-            if(addMusicToTableModel(jPathTF.getText())){
-                jStartButton.setEnabled(true);
-            } else {
-                DialogUtil.show(rootPane, "Music Not Found!");
+            if (jPathTF.getText() != null && !jPathTF.getText().equals("")) {
+                jPathTF.setEditable(false);
+                if (addMusicToTableModel(jPathTF.getText())) {
+                    jStartButton.setEnabled(true);
+                } else {
+                    DialogUtil.show(rootPane, "Music Not Found!");
+                }
             }
         }
 
@@ -162,13 +164,13 @@ public class MusicConverterJFrame extends javax.swing.JFrame {
 
         String from = jLabelFrom.getText().toLowerCase();
         String to = jLabelTo.getText().toLowerCase();
-        List<File> playlist = MusicUtil.getPlaylist(jPathTF.getText() ,from);
-        if(playlist.size() > 0) { 
+        List<File> playlist = MusicUtil.getPlaylist(jPathTF.getText(), from);
+        if (playlist.size() > 0) {
             Converter.getInstance(model).formatter(playlist, from, to);
         } else {
             DialogUtil.show(rootPane, "Formatter Completed!");
         }
-        
+
     }//GEN-LAST:event_jStartButtonActionPerformed
 
     public boolean addMusicToTableModel(String path) {
