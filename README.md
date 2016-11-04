@@ -17,3 +17,4 @@
 <li><a href="https://github.com/prongbang/MusicConverter/releases" target="_blank">Latest release</a></li>
 </ul>
 <h4>Preview</h4>
+![ScreenShot](https://raw.githubusercontent.com/prongbang/images/master/MusicConverter.gif)
